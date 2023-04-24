@@ -20,6 +20,7 @@ const calculateResult = (num1, num2, operation) => {
 };
 
 const reducer = (state, action) => {
+  console.log("şöyle bi istek geldi: ", action);
   switch (action.type) {
     case ADD_ONE:
       return {
