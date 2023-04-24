@@ -6,9 +6,10 @@ import reducer from "./reducers";
 import { initialState } from "./reducers";
 import { useReducer } from "react";
 /*import { addOne } from "./actions";*/
-import { applyNumber } from "./actions";
+import { applyNumber, memoryClear, memoryToTotal } from "./actions";
 import { changeOperation } from "./actions";
 import { clearDisplay } from "./actions";
+import { memoryPlus } from "./actions";
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -35,9 +36,15 @@ function App() {
             </div>
 
             <div className="row">
-              <CalcButton value={"M+"} />
-              <CalcButton value={"MR"} />
-              <CalcButton value={"MC"} />
+              <CalcButton value={"M+"} onClick={() => dispatch(memoryPlus())} />
+              <CalcButton
+                value={"MR"}
+                onClick={() => dispatch(memoryToTotal())}
+              />
+              <CalcButton
+                value={"MC"}
+                onClick={() => dispatch(memoryClear())}
+              />
             </div>
 
             <div className="row">
